@@ -1,5 +1,5 @@
-# Exploratory Data Analysis - Course Project 1 - plot3
-#   This is my work for the first assignment (plot 3)
+# Exploratory Data Analysis - Course Project 1 - plot4
+#   This is my work for the first assignment (plot 4)
 
 #Should move loading data to another function/script as it is common to all plots
 
@@ -50,18 +50,40 @@ if (doLoadData) {
 
 
 #Do the actual time plot and export to png
-png(file = 'plot3.png', 
+png(file = 'plot4.png', 
 		width = 480, 
 		height = 480,
 		bg = 'transparent')
 
+par(mfrow = c(2, 2)) #2 rows + 2 cols
+
+#Top Left
+plot(dfData$DateTime, dfData$Global_active_power, 
+        type='l',
+		ylab = 'Global Active Power',
+        xlab = '')
+
+#Top Right
+plot(dfData$DateTime, dfData$Voltage, 
+        type='l',
+		ylab = 'Voltage',
+        xlab = 'datetime')
+
+#Bot Left
 plot(dfData$DateTime, dfData$Sub_metering_1, 
         type='l',
-		ylab = 'Energy sub betering',
+		ylab = 'Energy sub metering',
         xlab = '')
 lines(dfData$DateTime,dfData$Sub_metering_2,col="red")
 lines(dfData$DateTime,dfData$Sub_metering_3,col="blue")
 
 legend('topright', lty=1, col=c('black', 'red', 'blue'), legend=c('Sub_metering_1','Sub_metering_2', 'Sub_metering_3'))
+
+#Bot Right
+plot(dfData$DateTime, dfData$Global_reactive_power, 
+        type='l',
+		ylab = 'Global_reactive_power',
+        xlab = 'datetime')
+
 
 dev.off()

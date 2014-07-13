@@ -57,7 +57,7 @@ png(file = 'plot3.png',
 
 plot(dfData$DateTime, dfData$Sub_metering_1, 
         type='l',
-		ylab = 'Energy sub betering',
+		ylab = 'Energy sub metering',
         xlab = '')
 lines(dfData$DateTime,dfData$Sub_metering_2,col="red")
 lines(dfData$DateTime,dfData$Sub_metering_3,col="blue")
