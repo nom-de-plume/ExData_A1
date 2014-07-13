@@ -50,14 +50,18 @@ if (doLoadData) {
 
 
 #Do the actual time plot and export to png
-png(file = 'plot2.png', 
+png(file = 'plot3.png', 
 		width = 480, 
 		height = 480,
 		bg = 'transparent')
 
-plot(dfData$DateTime, dfData$Global_active_power, 
+plot(dfData$DateTime, dfData$Sub_metering_1, 
         type='l',
-		ylab = 'Global Active Power (kilowatts)',
+		ylab = 'Energy sub betering',
         xlab = '')
+lines(dfData$DateTime,dfData$Sub_metering_2,col="red")
+lines(dfData$DateTime,dfData$Sub_metering_3,col="blue")
+
+legend('topright', lty=1, col=c('black', 'red', 'blue'), legend=c('Sub_metering_1','Sub_metering_2', 'Sub_metering_3'))
 
 dev.off()
