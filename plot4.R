@@ -41,11 +41,11 @@ if (doLoadData) {
 	dfData <- read.csv2.sql(csvFileName ,mySql)
 
 	#Convert Column classes
-	dfData$Date <- as.Date(dfData$Date)
-	dfData$Time <- strptime(dfData$Time, '%T')
+	dfData$Date <- as.Date(dfData$Date, '%d/%m/%Y')
+	dfData$Time <- format(strptime(dfData$Time, '%H:%M:%S'), '%H:%M:%S')
 
 	#need to concatenate time and date
-	dfData$DateTime <- as.POSIXct(paste(dfData$Date, dfData$Time), format="%d/%m/%Y %T")
+	dfData$DateTime <- as.POSIXct(paste(dfData$Date, dfData$Time), format="%Y-%m-%d %H:%M:%S")
 }
 
 
@@ -77,7 +77,7 @@ plot(dfData$DateTime, dfData$Sub_metering_1,
 lines(dfData$DateTime,dfData$Sub_metering_2,col="red")
 lines(dfData$DateTime,dfData$Sub_metering_3,col="blue")
 
-legend('topright', lty=1, col=c('black', 'red', 'blue'), legend=c('Sub_metering_1','Sub_metering_2', 'Sub_metering_3'))
+legend('topright', lty=1, col=c('black', 'red', 'blue'), legend=c('Sub_metering_1','Sub_metering_2', 'Sub_metering_3'), bty='n')
 
 #Bot Right
 plot(dfData$DateTime, dfData$Global_reactive_power, 
