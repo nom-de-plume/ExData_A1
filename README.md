@@ -115,4 +115,5 @@ The four plots that you will need to construct are shown below.
 
 
 ## Own Notes
-2014/09/04 - Resubmitting Assignment for this month
+2014/09/04 - Resubmitting Assignment for this month (Sep)
+2014/10/07 - Resubmitting Assignment for this month (Oct)
